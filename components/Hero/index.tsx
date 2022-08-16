@@ -42,7 +42,7 @@ const Hero = () => {
           </div>
         </div>
         <div className="mt-7 text-xl text-teal-50/90 sm:mt-9">
-          Welcome to my digital garden where I share what I'm learning about
+          Welcome to my digital garden where I share what I&aposm learning about
           shipping great products, becoming a better developer and growing a
           career in tech.
         </div>
