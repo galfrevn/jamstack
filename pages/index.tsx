@@ -1,6 +1,11 @@
+import type { NextPage } from "next";
+
+// Components
+import Feed from "components/Feed";
 import Hero from "components/Hero";
 import Layout from "layouts";
-import type { NextPage } from "next";
+
+// Markdown
 
 const Home: NextPage = () => {
   return (
@@ -12,6 +17,7 @@ const Home: NextPage = () => {
       >
         <div className="-mt-12 sm:mt-0">
           <Hero />
+          <Feed />
         </div>
       </main>
     </Layout>

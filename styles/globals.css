@@ -1,8 +1,12 @@
 @tailwind base;
+@import "styles/syntax-highlighting";
 @tailwind components;
 @tailwind utilities;
 
 * {
-  /* font-family: "Karla", sans-serif; */
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
   font-family: "Poppins", sans-serif;
 }
