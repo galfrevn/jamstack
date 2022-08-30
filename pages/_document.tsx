@@ -16,7 +16,7 @@ class MyDocument extends Document {
             rel="stylesheet"
           />
         </Head>
-        <body className="antialiased selection:bg-sky-200/60 bg-[rgb(10,24,24)] selection:text-white">
+        <body className="antialiased selection:bg-sky-200/60 bg-[rgb(12,28,28)] selection:text-white">
           <Main />
           <NextScript />
         </body>

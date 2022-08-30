@@ -13,6 +13,10 @@ const Post = defineDocumentType(() => ({
       type: "string",
       required: true,
     },
+    publishedAt: {
+      type: "string",
+      required: true,
+    },
   },
 
   computedFields: {
@@ -31,6 +35,6 @@ export default makeSource({
   contentDirPath: "content",
   documentTypes: [Post],
   mdx: {
-    rehypePlugins: [rehypePrettyCode, rehypePrettyCodeOptions],
+    rehypePlugins: [rehypePrettyCode, rehypePrettyCodeOptions as any],
   },
 });
