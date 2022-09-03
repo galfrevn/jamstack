@@ -10,7 +10,7 @@ export const createOgImage = ({
     // Add your own Cloudinary account ID.
     `https://res.cloudinary.com/qwertytesting123/image/upload`,
     // Composed Image Transformations
-    `w_1600,h_836,q_100`,
+    `w_1040,h_798,q_100`,
 
     // TITLE
     // Karla google font in light rose
@@ -33,7 +33,7 @@ export const createOgImage = ({
     `fl_layer_apply,w_140,g_north_west,x_100,y_100`,
 
     // BG
-    `bg-white.png`,
+    `bg-black.jpg`,
   ].join("/");
 
 // double escape for commas and slashes

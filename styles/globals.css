@@ -1,12 +1,16 @@
 @tailwind base;
-@import "styles/syntax-highlighting";
 @tailwind components;
 @tailwind utilities;
+@import "styles/syntax-highlighting";
 
 * {
   -webkit-tap-highlight-color: transparent;
 }
 
-body {
-  font-family: "Poppins", sans-serif;
+html {
+  font-family: "Outfit", sans-serif;
+}
+
+#nprogress .bar {
+  background: #fcba28 !important;
 }

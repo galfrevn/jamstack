@@ -8,15 +8,11 @@ class MyDocument extends Document {
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link
-            href="https://fonts.googleapis.com/css2?family=Karla:wght@400;500;600&display=swap"
-            rel="stylesheet"
-          />
-          <link
-            href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&display=swap"
             rel="stylesheet"
           />
         </Head>
-        <body className="antialiased selection:bg-sky-200/60 bg-[rgb(12,28,28)] selection:text-white">
+        <body className="antialiased selection:bg-[#FCBA28] bg-[#0F0D0E] selection:text-[#0F0D0E] ">
           <Main />
           <NextScript />
         </body>

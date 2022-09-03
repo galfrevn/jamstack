@@ -10,10 +10,12 @@
   },
   "dependencies": {
     "contentlayer": "^0.2.7",
+    "framer-motion": "^7.2.1",
     "gray-matter": "^4.0.3",
     "next": "12.2.5",
     "next-contentlayer": "^0.2.7",
     "next-mdx-remote": "^4.1.0",
+    "nprogress": "^0.2.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-feather": "^2.0.10",
@@ -23,6 +25,7 @@
   "devDependencies": {
     "@tailwindcss/line-clamp": "^0.4.0",
     "@types/node": "18.7.4",
+    "@types/nprogress": "^0.2.0",
     "@types/react": "18.0.17",
     "@types/react-dom": "18.0.6",
     "autoprefixer": "^10.4.8",
