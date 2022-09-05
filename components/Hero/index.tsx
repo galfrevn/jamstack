@@ -83,21 +83,21 @@ const Hero = () => {
         <div className="mt-8 sm:mt-12">
           <div className="flex items-center space-x-7 text-base font-medium leading-none sm:text-lg">
             <HeaderButton
-              to="about"
+              to="/about"
               name="About"
               bgcolor="#12B5E5"
               image="https://res.cloudinary.com/qwertytesting123/image/upload/v1662155122/typescript-logo.svg"
               delay={0.25}
             />
             <HeaderButton
-              to="work"
+              to="/work"
               name="Work"
               bgcolor="#F9F4DA"
               image="https://res.cloudinary.com/qwertytesting123/image/upload/v1662155122/javascript-logo.svg"
               delay={0.3}
             />
             <HeaderButton
-              to="blog"
+              to="/blog"
               name="Blog"
               bgcolor="#FC7428"
               image="https://res.cloudinary.com/qwertytesting123/image/upload/v1662155122/eyes-logo.svg"

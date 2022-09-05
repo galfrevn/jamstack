@@ -1,4 +1,5 @@
 import { defineDocumentType, makeSource } from "contentlayer/source-files";
+import readingTime from "reading-time";
 
 import rehypePrettyCode from "rehype-pretty-code";
 import { rehypePrettyCodeOptions } from "./lib/rehypePrettyCode";
@@ -9,13 +10,25 @@ const Post = defineDocumentType(() => ({
   // Location of Post source files (relative to `contentDirPath`)
   filePathPattern: `posts/*.mdx`,
   fields: {
-    title: {
-      type: "string",
-      required: true,
-    },
     publishedAt: {
       type: "string",
+      description: "The date of the post",
       required: true,
+    },
+    title: {
+      type: "string",
+      description: "The title of the post",
+      required: true,
+    },
+    summary: {
+      type: "string",
+      description: "The summary of the post",
+      required: true,
+    },
+    color: {
+      type: "string",
+      description: "Color of the post background",
+      required: false,
     },
   },
 
@@ -26,6 +39,14 @@ const Post = defineDocumentType(() => ({
         post._raw.sourceFileName
           // hello-world.mdx => hello-world
           .replace(/\.mdx$/, ""),
+    },
+    readingTime: {
+      type: "json",
+      resolve: (doc) => readingTime(doc.body.raw),
+    },
+    wordCount: {
+      type: "number",
+      resolve: (doc) => doc.body.raw.split(/\s+/gu).length,
     },
   },
 }));
