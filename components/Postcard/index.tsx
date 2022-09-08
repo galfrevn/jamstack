@@ -2,7 +2,6 @@ import type { Post } from "contentlayer/generated";
 import type { FC } from "react";
 import React from "react";
 
-import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
@@ -35,55 +34,13 @@ const Postcard: FC<PostCardProps> = ({
       <Link href={`/blog/${slug}`}>
         <a className="grid gap-2">
           <header>
-            <h5 className="lg:font-black font-bold lg:text-2xl leading-6 ">
+            <h5 className="font-bold lg:text-2xl leading-6 ">
               {title}
             </h5>
-            <div className="inline-flex gap-1 mt-2">
-              <Image
-                alt="star"
-                src="https://res.cloudinary.com/qwertytesting123/image/upload/v1662340452/star.svg"
-                width="18"
-                height="18"
-                decoding="async"
-                data-nimg="future"
-              />
-              <Image
-                alt="star"
-                src="https://res.cloudinary.com/qwertytesting123/image/upload/v1662340452/star.svg"
-                width="18"
-                height="18"
-                decoding="async"
-                data-nimg="future"
-              />
-              <Image
-                alt="star"
-                src="https://res.cloudinary.com/qwertytesting123/image/upload/v1662340452/star.svg"
-                width="18"
-                height="18"
-                decoding="async"
-                data-nimg="future"
-              />
-              <Image
-                alt="star"
-                src="https://res.cloudinary.com/qwertytesting123/image/upload/v1662340452/star.svg"
-                width="18"
-                height="18"
-                decoding="async"
-                data-nimg="future"
-              />
-              <Image
-                alt="star"
-                src="https://res.cloudinary.com/qwertytesting123/image/upload/v1662340452/star.svg"
-                width="18"
-                height="18"
-                decoding="async"
-                data-nimg="future"
-              />
-            </div>
-            <p className="font-black text-xs mt-1 lg:mt-2 lg:text-sm">
+            <p className="font-semibold text-xs mt-1 lg:mt-2 lg:text-sm">
               {publishedAt}
             </p>
-            <p className="font-black text-xs lg:text-sm">
+            <p className="font-semibold text-xs lg:text-sm">
               {readingTime.text} - {wordCount} words.
             </p>
           </header>

@@ -35,18 +35,11 @@ export default function Post({
         gap-y-8 px-4 pt-48 text-lg xl:grid-cols-[1fr,minmax(auto,240px),min(640px,100%),minmax(auto,240px),1fr] 
           xl:gap-x-9 xl:px-0 [&>*]:col-start-2 xl:[&>*]:col-start-3"
       >
-        <PostHeader title={post.title} />
-
-        <PostTracker
-          pages={[
-            {
-              id: "how-to-create-a-blog-with-mdx",
-              label: "How to create a blog with MDX",
-            },
-          ]}
-        />
-
+        <PostHeader {...post} />
         <MDXContent components={MDXComponents} />
+
+        
+
       </main>
     </Fragment>
   );
