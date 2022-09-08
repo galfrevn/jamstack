@@ -23,7 +23,7 @@ export default function Header() {
       <div
         className={` ${
           animateHeader ? "opacity-100" : "opacity-0"
-        } transition-all duration-300 pointer-events-auto col-start-2 -mx-px rounded-2xl bg-gray-800/95 px-4 py-3 shadow-surface-glass backdrop-blur will-change-transform [@supports(backdrop-filter:blur(0px))]:bg-white/[3%]`}
+        } transition-all duration-300 pointer-events-auto col-start-2 -mx-px rounded-2xl bg-gray-800/95 px-4 py-3 shadow-surface-glass backdrop-blur will-change-transform [@supports(backdrop-filter:blur(0px))]:bg-black/[35%]`}
       >
         {animateHeader && (
           <div className="flex items-center justify-between">

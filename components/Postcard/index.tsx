@@ -8,9 +8,11 @@ import { motion } from "framer-motion";
 
 interface PostCardProps extends Post {
   color?: string;
+  index: number;
 }
 
 const Postcard: FC<PostCardProps> = ({
+  index,
   title,
   slug,
   wordCount,
@@ -28,12 +30,14 @@ const Postcard: FC<PostCardProps> = ({
         backgroundColor: color,
       }}
       initial={{ opacity: 0, y: 10 }}
-      animate={{ opacity: 1, y: 0, transition: { delay: 0.3 } }}
+      animate={{ opacity: 1, y: 0, transition: { delay: 0.3 + 0.08 * index } }}
     >
       <Link href={`/blog/${slug}`}>
         <a className="grid gap-2">
           <header>
-            <h5 className="font-bold">{title}</h5>
+            <h5 className="lg:font-black font-bold lg:text-2xl leading-6 ">
+              {title}
+            </h5>
             <div className="inline-flex gap-1 mt-2">
               <Image
                 alt="star"
@@ -76,12 +80,16 @@ const Postcard: FC<PostCardProps> = ({
                 data-nimg="future"
               />
             </div>
-            <p className="font-black text-xs mt-1 ">{publishedAt} </p>
-            <p className="font-black text-xs ">
+            <p className="font-black text-xs mt-1 lg:mt-2 lg:text-sm">
+              {publishedAt}
+            </p>
+            <p className="font-black text-xs lg:text-sm">
               {readingTime.text} - {wordCount} words.
             </p>
           </header>
-          <p className="my-1 text-sm leading-tight ">{summary}</p>
+          <p className="my-1 lg:my-2 text-sm leading-tight lg:text-lg lg:leading-6 lg:font-medium">
+            {summary}
+          </p>
         </a>
       </Link>
     </motion.div>

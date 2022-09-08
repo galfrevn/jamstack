@@ -8,7 +8,9 @@ interface PostHeaderProps {
 const PostHeader: FC<PostHeaderProps> = ({ title }) => {
   return (
     <div className="xl:!col-end-5">
-      <h1 className="text-2xl font-bold sm:text-4xl">{title}</h1>
+      <h1 className="text-5xl leading-[1.2] font-bold lg:text-7xl bg-gradient-to-l text-transparent bg-clip-text from-[#ddd0a6] to-[#F9F4DA] ">
+        {title}
+      </h1>
       <div className="mt-2 flex space-x-2 text-base text-[#F9F4DA] opacity-60">
         <div>Aug 24</div>
         <div className="text-[#F9F4DA] opacity-70">·</div>
