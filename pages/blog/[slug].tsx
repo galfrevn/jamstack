@@ -37,9 +37,7 @@ export default function Post({
       >
         <PostHeader {...post} />
         <MDXContent components={MDXComponents} />
-
         
-
       </main>
     </Fragment>
   );

@@ -1,6 +1,10 @@
 import "styles/globals.css";
 import type { AppProps } from "next/app";
 
+// Fonts
+import "@fontsource/paytone-one";
+import "@fontsource/outfit"
+
 // Routing & Layout
 import Router from "next/router";
 import Layout from "layouts";

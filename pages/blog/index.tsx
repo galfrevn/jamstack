@@ -4,6 +4,7 @@ import { allPosts, type Post } from "contentlayer/generated";
 
 // Components
 import Postcard from "components/Postcard";
+import Footer from "components/Footer";
 
 export default function PostListPage({
   posts,
@@ -22,6 +23,7 @@ export default function PostListPage({
           ))}
         </div>
       </div>
+      <Footer />
     </main>
   );
 }

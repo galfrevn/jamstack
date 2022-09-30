@@ -9,20 +9,20 @@ const PostHeader: FC<Post> = ({ title, publishedAt, readingTime, wordCount }) =>
         {title}
       </h1>
       <div className="mt-2 flex space-x-2 text-base text-[#F9F4DA] opacity-60">
-        <div>{publishedAt}</div>
+        <p>{publishedAt}</p>
         <div className="text-[#F9F4DA] opacity-70">·</div>
-        <div>
+        <p>
           <span className="-mx-0.5 animate-[mutation_2s_ease-in-out_1] rounded-md px-0.5 slashed-zero tabular-nums tracking-tight">
             {readingTime.text}
           </span>{" "}
-        </div>
+        </p>
         <div className="text-[#F9F4DA] opacity-70">·</div>
-        <div>
+        <p>
           <span className="-mx-0.5 animate-[mutation_2s_ease-in-out_1] rounded-md px-0.5 slashed-zero tabular-nums tracking-tight">
             {wordCount}
           </span>{" "}
           words
-        </div>
+        </p>
       </div>
     </div>
   );

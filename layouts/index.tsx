@@ -9,7 +9,6 @@ const Layout: FC<{ children: ReactNode }> = ({ children }) => {
       <FractalNoise />
       <Header />
       {children}
-      {/* <Footer /> */}
     </Fragment>
   );
 };

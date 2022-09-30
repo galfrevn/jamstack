@@ -2,7 +2,7 @@ div[data-rehype-pretty-code-fragment] {
   overflow: hidden;
 
   /* stylist preferences */
-  background-color: #5458581A;
+  background-color: #5458581a;
   border-radius: 0.5rem;
 }
 
@@ -20,7 +20,7 @@ div[data-rehype-pretty-code-title] {
   /* stylistic preferences */
   margin-bottom: 0.125rem;
   border-radius: 0.375rem;
-  background-color: #9F9F9F1A;
+  background-color: #9f9f9f1a;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
   padding-top: 0.25rem;
@@ -29,7 +29,7 @@ div[data-rehype-pretty-code-title] {
     Consolas, "Liberation Mono", "Courier New", monospace !important;
   font-size: 0.75rem;
   line-height: 1rem;
-  color: #F9F4DA;
+  color: #f9f4da;
 }
 
 div[data-rehype-pretty-code-fragment] .line {
@@ -45,6 +45,12 @@ div[data-rehype-pretty-code-fragment] .line {
 
   border-left-width: 4px;
   border-left-color: transparent;
+}
+
+div[data-rehype-pretty-code-fragment] .line span {
+  /* stylistic preferences */
+  font-family: monospace;
+  font-size: .85rem;
 }
 
 div[data-rehype-pretty-code-fragment] .line--highlighted {

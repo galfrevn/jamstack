@@ -24,19 +24,15 @@ const Postcard: FC<PostCardProps> = ({
     <motion.div
       key="card"
       className="rounded-lg p-6 md:p-8 text-[#231f20] border border-[#231f20]"
-      style={{
-        filter: "drop-shadow(8px 8px 0px #231f20)",
-        backgroundColor: color,
-      }}
+      style={{ backgroundColor: color }}
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0, transition: { delay: 0.3 + 0.08 * index } }}
+      whileHover={{ scale: 1.02 }}
     >
       <Link href={`/blog/${slug}`}>
         <a className="grid gap-2">
           <header>
-            <h5 className="font-bold lg:text-2xl leading-6 ">
-              {title}
-            </h5>
+            <h2 className="font-bold lg:text-lg uppercase">{title}</h2>
             <p className="font-semibold text-xs mt-1 lg:mt-2 lg:text-sm">
               {publishedAt}
             </p>
@@ -44,7 +40,7 @@ const Postcard: FC<PostCardProps> = ({
               {readingTime.text} - {wordCount} words.
             </p>
           </header>
-          <p className="my-1 lg:my-2 text-sm leading-tight lg:text-lg lg:leading-6 lg:font-medium">
+          <p className="my-1 lg:my-2 text-sm leading-tight lg:text-md lg:leading-2 font-semibold">
             {summary}
           </p>
         </a>
