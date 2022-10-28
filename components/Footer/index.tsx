@@ -13,7 +13,7 @@ const footerLinks: FooterLink[] = [
   { isExternal: false, label: "Videos", url: "/videos" },
   { isExternal: false, label: "Blog", url: "/blog" },
   { isExternal: false, label: "Inspired Tweets", url: "/videos" },
-  { isExternal: false, label: "Unicode", url: "/unicode" },
+  { isExternal: false, label: "Wordle", url: "/wordle" },
   { isExternal: true, label: "Twitter", url: "/twitter" },
   { isExternal: true, label: "Instagram", url: "/instagram" },
   { isExternal: true, label: "Linkedin", url: "/linkeding" },

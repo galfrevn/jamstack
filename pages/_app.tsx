@@ -1,5 +1,6 @@
 import "styles/globals.css";
 import type { AppProps } from "next/app";
+import { Toaster } from 'react-hot-toast'
 
 // Fonts
 import "@fontsource/paytone-one";
@@ -29,6 +30,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <AnimatePresence>
       <Layout>
+        <Toaster />
         <Component {...pageProps} />
       </Layout>
     </AnimatePresence>

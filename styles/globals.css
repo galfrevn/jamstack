@@ -7,7 +7,7 @@
   -webkit-tap-highlight-color: transparent;
 }
 
-p, span, a, code, li {
+p, span, a, code, li, input {
   font-family: "Outfit", sans-serif;
 }
 
