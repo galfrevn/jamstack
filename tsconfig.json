@@ -16,7 +16,8 @@
     "baseUrl": ".",
     "incremental": true,
     "paths": {
-      "contentlayer/generated": ["./.contentlayer/generated"]
+      "contentlayer/generated": ["./.contentlayer/generated"],
+      "@/wordle/*": ["components/Wordle/*"]
     }
   },
   "include": [

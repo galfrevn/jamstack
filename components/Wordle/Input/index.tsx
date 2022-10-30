@@ -1,11 +1,19 @@
-import React, { Fragment, useMemo } from 'react'
+import React, { FC, useMemo } from 'react'
 import { motion } from 'framer-motion'
-import WordleGuess from '../Guess';
 
 const RE_DIGIT = new RegExp(/^[a-z]{1}$/);
+interface WordleInputProps {
+  value: string;
+  valueLength: number;
+  onChange: (value: string) => void;
+  enabled: boolean;
+  onSubmit: () => void;
+  rowIndex: number;
+}
 
-const Input = ({ value, valueLength, onChange, enabled, onSubmit, rowIndex }: any) => {
+const Input: FC<WordleInputProps> = ({ value, valueLength, onChange, enabled, onSubmit, rowIndex }) => {
 
+  /* Split word into diferent inputs */
   const valueItems = useMemo(() => {
     const valueArray = value.split('');
     const items: Array<string> = [];
@@ -23,6 +31,11 @@ const Input = ({ value, valueLength, onChange, enabled, onSubmit, rowIndex }: an
     return items;
   }, [value, valueLength]);
 
+  /**
+   * Change event of each input element
+   * @param e Change event
+   * @param idx Index of the input element
+   */
   const inputOnChange = (
     e: React.ChangeEvent<HTMLInputElement>,
     idx: number
@@ -54,6 +67,10 @@ const Input = ({ value, valueLength, onChange, enabled, onSubmit, rowIndex }: an
     }
   };
 
+  /**
+   * Input event of each input element
+   * @param e Key input event
+   */
   const inputOnKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     const target = e.target as HTMLInputElement;
 
@@ -81,12 +98,15 @@ const Input = ({ value, valueLength, onChange, enabled, onSubmit, rowIndex }: an
           type="text"
           pattern="\d{1}"
           inputMode="text"
+          readOnly={!enabled}
+          disabled={!enabled}
+          autoFocus={enabled}
           maxLength={valueLength}
           value={enabled ? digit : ""}
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0, transition: { delay: 0.18 + 0.06 * rowIndex + 0.05 * idx } }}
           whileFocus={{ scale: 1.09 }}
-          className="w-14 h-14 bg-transparent outline outline-1 outline-neutral-800 rounded-md text-center uppercase font-bold  "
+          className="z-10 w-14 h-14 bg-transparent outline outline-1 outline-neutral-800 rounded-md text-center uppercase font-bold shadow-surface-glass backdrop-blur will-change-transform [@supports(backdrop-filter:blur(0px))]:bg-[#101010]/[35%]"
           onChange={(e) => inputOnChange(e, idx)}
           onKeyDown={inputOnKeyDown}
         />

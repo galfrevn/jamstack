@@ -30,7 +30,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <AnimatePresence>
       <Layout>
-        <Toaster />
+        <Toaster position="bottom-right" />
         <Component {...pageProps} />
       </Layout>
     </AnimatePresence>

@@ -8,8 +8,8 @@ import { createOgImage } from "lib/createOgImage";
 import { useMDXComponent } from "next-contentlayer/hooks";
 
 import MDXComponents from "components/MDXComponents";
-import PostTracker from "components/PostTracker";
 import PostHeader from "components/PostHeader";
+import Container from "components/Container";
 
 export default function Post({
   post,
@@ -30,15 +30,10 @@ export default function Post({
         <meta property="og:image:alt" content={post.title} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <main
-        className="text-[#F9F4DA] relative z-10 grid grid-cols-[1fr,min(640px,100%),1fr] 
-        gap-y-8 px-4 pt-48 text-lg xl:grid-cols-[1fr,minmax(auto,240px),min(640px,100%),minmax(auto,240px),1fr] 
-          xl:gap-x-9 xl:px-0 [&>*]:col-start-2 xl:[&>*]:col-start-3"
-      >
+      <Container>
         <PostHeader {...post} />
         <MDXContent components={MDXComponents} />
-        
-      </main>
+      </Container>
     </Fragment>
   );
 }
