@@ -5,7 +5,7 @@ const WordleAlert = (t: Toast) => {
     <div
       className={
         `${t.visible ? 'animate-enter' : 'animate-leave'} 
-        max-w-xs w-full bg-transparent outline outline-1 outline-neutral-800 rounded-lg pointer-events-auto flex ring-1 ring-black ring-opacity-5`
+        max-w-xs w-full bg-transparent outline outline-1 outline-neutral-800 bg-[#161213] rounded-lg pointer-events-auto flex ring-1 ring-black ring-opacity-5`
       }
     >
       <div className="flex-1 w-0 p-3">

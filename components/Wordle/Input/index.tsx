@@ -100,13 +100,13 @@ const Input: FC<WordleInputProps> = ({ value, valueLength, onChange, enabled, on
           inputMode="text"
           readOnly={!enabled}
           disabled={!enabled}
-          autoFocus={enabled}
+          autoFocus={enabled && value.length === idx}
           maxLength={valueLength}
           value={enabled ? digit : ""}
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0, transition: { delay: 0.18 + 0.06 * rowIndex + 0.05 * idx } }}
           whileFocus={{ scale: 1.09 }}
-          className="z-10 w-14 h-14 bg-transparent outline outline-1 outline-neutral-800 rounded-md text-center uppercase font-bold shadow-surface-glass backdrop-blur will-change-transform [@supports(backdrop-filter:blur(0px))]:bg-[#101010]/[35%]"
+          className="text-[#F9F4DA] z-10 w-14 h-14 bg-transparent outline outline-1 outline-neutral-800 rounded-md text-center uppercase font-bold shadow-surface-glass backdrop-blur will-change-transform [@supports(backdrop-filter:blur(0px))]:bg-[#101010]/[35%]"
           onChange={(e) => inputOnChange(e, idx)}
           onKeyDown={inputOnKeyDown}
         />

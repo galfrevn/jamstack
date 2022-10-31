@@ -28,7 +28,7 @@ const WordleGuess: FC<WordleGuessProps> = ({ value, correctWord }) => {
         const isCorrect = isInCorrectPlace(digit, idx);
 
         return (
-          <div key={`guess-${idx}-input`} className="z-10 w-14 h-14 bg-transparent outline outline-1 outline-neutral-800 overflow-hidden rounded-md flex items-center align-center">
+          <div key={`guess-${idx}-input`} className="z-10 w-14 h-14 text-[#231F20] bg-transparent outline outline-1 outline-neutral-800 overflow-hidden rounded-md flex items-center align-center">
             <motion.input
               disabled
               readOnly
@@ -42,7 +42,7 @@ const WordleGuess: FC<WordleGuessProps> = ({ value, correctWord }) => {
               animate={{ y: 0, transition: { delay: 0.18 + 0.06 * idx } }}
               className={`
                 w-14 h-14 bg-transparent rounded-md text-center uppercase font-bold
-                ${isIncorrect ? "bg-neutral-900 opacity-20" : isCorrect ? "bg-green-500" : "bg-[#FCBA28]"}
+                ${isIncorrect ? "bg-neutral-900 opacity-20 text-[#F9F4DA]" : isCorrect ? "bg-green-500" : "bg-[#FCBA28]"}
               `}
             />
           </div>
