@@ -33,7 +33,7 @@ const TotalViews = () => {
     >
       <Eye size={13} />
       {isLoading && <>...</>}
-      {data && <p className='text-xs'>{data} views </p>}
+      {data && <p className='text-xs'>{data} total views </p>}
     </motion.div>
   );
 };

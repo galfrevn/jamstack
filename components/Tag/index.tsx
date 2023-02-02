@@ -6,7 +6,8 @@ export interface TagProps {
   color: ColorVariant;
   label: string;
   icon: ReactNode;
-  link: string;
+  link?: string;
+  withHover?: boolean;
 }
 
 const generateColorPair = (color: ColorVariant) => {
@@ -39,8 +40,8 @@ const generateColorPair = (color: ColorVariant) => {
   return [background, border] as const;
 };
 
-const Tag = (props: TagProps & { index: number }) => {
-  const { color, icon, label, link, index } = props;
+const Tag = (props: TagProps & { index?: number }) => {
+  const { color, icon, label, link, index = 0, withHover = true } = props;
   const [background, border] = generateColorPair(color);
 
   return (
@@ -52,7 +53,7 @@ const Tag = (props: TagProps & { index: number }) => {
       className='h-6 border-2 rounded-md flex items-center justify-start pl-3 pr-4 select-none gap-2'
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0, transition: { delay: 0.2 + 0.05 * index } }}
-      whileHover={{ scale: 1.05 }}
+      whileHover={{ scale: withHover ? 1.05 : 1 }}
       style={{ backgroundColor: background, borderColor: border }}
     >
       {icon}
