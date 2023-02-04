@@ -16,7 +16,7 @@ const PostTracker: FC<PostTrackerProps> = ({ pages }) => {
     <div className="sticky top-6 hidden h-0 xl:!col-start-4 xl:row-start-2 xl:block">
       <div className="space-y-6">
         <div className="space-y-2 text-sm">
-          <div className="uppercase text-rose-100/30 mb-2 ">On this page</div>
+          <p className="font-semibold text-[#FCBA28] mb-2 tracking-tight">On this page</p>
 
           {pages.map((page, index) => (
             <div className="flex flex-col gap-1" key={index}>

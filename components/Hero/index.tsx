@@ -2,7 +2,7 @@ import Image from "next/image";
 import React from "react";
 import { motion } from "framer-motion";
 
-import HeaderButton from "components/HeaderButton";
+/* import HeaderButton from "components/HeaderButton"; */
 
 const Hero = () => {
   return (
@@ -11,26 +11,27 @@ const Hero = () => {
         <div className="flex items-center space-x-6">
           <motion.div
             key="image"
-            className="rounded-full shadow-lg p-[3px] ring-[5px] ring-[#FCBA28]"
+            className="rounded-full shadow-lg p-[3px] ring-[2px] ring-white cursor-pointer"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
+            whileHover={{ scale: 1.07 }}
           >
             <div className="rounded-full p-px h-[64px] w-[64px]">
-              {/* <Image
+               <Image
                 alt="A Valentin picture"
-                src=""
+                src="/images/avatar.png"
                 width="64"
                 height="64"
                 decoding="async"
                 data-nimg="future"
                 className="rounded-full"
-              /> */}
+              /> 
             </div>
           </motion.div>
           <div>
             <motion.h1
               key="name"
-              className="text-3xl font-semibold sm:text-4xl"
+              className="text-3xl font-black sm:text-4xl"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0, transition: { delay: 0.1 } }}
             >
@@ -80,7 +81,7 @@ const Hero = () => {
           about shipping great products, becoming a better developer and growing
           a career in tech.
         </motion.p>
-        <div className="mt-8 sm:mt-12">
+        {/* <div className="mt-8 sm:mt-12">
           <div className="flex items-center space-x-7 text-base font-medium leading-none sm:text-lg">
             <HeaderButton
               to="/about"
@@ -104,7 +105,7 @@ const Hero = () => {
               delay={0.35}
             />
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

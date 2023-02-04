@@ -5,7 +5,7 @@ import React from "react";
 const PostHeader: FC<Post> = ({ title, publishedAt, readingTime, wordCount }) => {
   return (
     <div className="xl:!col-end-5">
-      <h1 className="text-4xl leading-[1.2] font-semibold" >
+      <h1 className="text-4xl leading-[1.2] font-extrabold" >
         {title}
       </h1>
       <div className="mt-2 flex space-x-2 text-base text-[#F9F4DA] opacity-60">

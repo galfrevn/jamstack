@@ -28,8 +28,8 @@ interface PostSubtitleProps {
 }
 
 const PostSubtitle: FC<PostSubtitleProps> = (props) => (
-  <h2 className="relative mt-3 border-t-2 border-rose-200/5 pt-9 text-xl font-medium text-[#FCBA28] sm:text-3xl" id={props.id} >
-    <a href={`#${props.id}`} className="before:content-['#'] before:absolute before:-ml-[1em] before:text-rose-100/0 lg:hover:before:text-[#3D3A32]  pl-[1em] -ml-[1em]" >{props.label}</a>
+  <h2 className="relative mt-3 border-t-2 border-rose-200/5 pt-9 text-xl font-extrabold text-[#FCBA28] sm:text-3xl" id={props.id} >
+    <a href={`#${props.id}`} className="before:content-['#'] before:absolute before:-ml-[1em] before:text-rose-100/0 lg:hover:before:text-[rgba(251,245,220,0.05)]  pl-[1em] -ml-[1em]" >{props.label}</a>
   </h2>
 )
 
