@@ -8,15 +8,15 @@ export const createOgImage = ({
   [
     // ACCOUNT PREFIX
     // Add your own Cloudinary account ID.
-    `https://res.cloudinary.com/qwertytesting123/image/upload`,
+    `https://res.cloudinary.com/galfrevn/image/upload`,
     // Composed Image Transformations
-    `w_1040,h_798,q_100`,
-
+    /* `w_1600,h_836,q_100`, */
+    `e_gamma:-30`,
     // TITLE
     // Karla google font in light rose
-    `l_text:Poppins_72_bold:${e(title)},co_rgb:ffffff,c_fit,w_1400,h_240`,
+    `l_text:Poppins_96_bold:${e(title)},co_rgb:ffffff,c_fit,w_2000,h_480`,
     // Positioning
-    `fl_layer_apply,g_south_west,x_100,y_180`,
+    `fl_layer_apply,g_south_west,x_100,y_240`,
 
     // META
     // Karla, but smaller
@@ -26,15 +26,15 @@ export const createOgImage = ({
 
     // PROFILE IMAGE
     // dynamically fetched from my twitter profile
-    `l_twitter_name:ValentinGalfre`,
+    `l_twitter_name:galfrevn`,
     // Transformations
-    `c_thumb,g_face,r_max,w_380,h_380,q_100`,
+    `c_thumb,g_face,r_max,w_500,h_500,q_100`,
     // Positioning
-    `fl_layer_apply,w_140,g_north_west,x_100,y_100`,
+    `fl_layer_apply,w_300,g_north_west,x_100,y_100`,
 
     // BG
-    `bg-black.jpg`,
-  ].join("/");
+    `blog/black.webp`,
+  ].join('/');
 
 // double escape for commas and slashes
 const e = (str: string) => encodeURIComponent(encodeURIComponent(str));
