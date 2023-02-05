@@ -20,7 +20,7 @@ const generateColorPair = (color: ColorVariant) => {
       break;
     case 'light-blue':
       background = '#84D7FF3B';
-      border = '#C090F766';
+      border = '#b9e8ff3a';
       break;
     case 'purple':
       background = '#CC67FF3B';
