@@ -7,18 +7,10 @@
   -webkit-tap-highlight-color: transparent;
 }
 
-p, span, a, code, li, input {
+p, span, a, code, li, input, h1, h2, h2 a, h3 {
   font-family: "Outfit", sans-serif;
 }
 
-h1, h2, h3 {
-  font-family: "Paytone One", sans-serif;
-}
-
-h2 a {
-  font-family: "Paytone One", sans-serif;
-}
-
 #nprogress .bar {
-  background: #fcba28 !important;
+  background: #FFF !important;
 }
