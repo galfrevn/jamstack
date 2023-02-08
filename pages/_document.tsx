@@ -1,8 +1,8 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
 
-const TITLE = "Galfrevn Hub | Galfré Valentín Portfolio | Blog";
+const TITLE = "Galfrevn Hub | Galfré Valentín Blog";
 const DESCRIPTION = `Find out all about Galfré Valentín, a fully completed Fullstack Developer from Argentina.
-Discover his portfolio and skills... or read his blogs entries, where he uploads some daily problems solutions! 🚀`;
+Discover his blogs entries, where he uploads some daily problems solutions! 🚀`;
 const URL = "https://portfolio-galfrevn.vercel.app"
 
 class MyDocument extends Document {
