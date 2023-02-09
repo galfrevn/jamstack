@@ -8,7 +8,7 @@ color: "#A3B2FF"
 In a Next.js application I'm working on, I have an "admin" page, which lets me manage registered users:
 
 <PostImage
-  alt="Crombie logo"
+  alt="Refreshing serverside props"
   src="https://www.joshwcomeau.com/_next/image/?url=%2Fimages%2Frefreshing-server-side-props%2Fuser-table.png&w=750&q=75"
   width="750"
   height="189"
@@ -69,3 +69,18 @@ async function handleSubmit() {
 But why does this work? Why are we involving the router in this process, and what the heck is it doing?
 
 In fact, this solution requires a bit of context-setting. Let's talk a bit about how server-rendered routes have a secret alter-ego 🦸🏾‍♀️
+
+<PostTracker
+  pages={[
+    {
+      id: "",
+      label: "Refreshing Server-side Props",
+      semipage: [
+        {
+          id: "the-solution",
+          label: "The solution",
+        },
+      ],
+    },
+  ]}
+/>
