@@ -14,9 +14,7 @@ export default async function handler(
   });
 
   if (!postViews)
-    throw new Error('I could not retreive blog views', {
-      cause: postViews,
-    });
+    throw new Error('I could not retreive blog views');
 
   res.status(200).json(postViews.views);
 }

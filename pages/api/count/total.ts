@@ -9,9 +9,7 @@ export default async function handler(_: NextApiRequest, res: NextApiResponse) {
   });
 
   if (!totalViews)
-    throw new Error('I could not retreive blog total views', {
-      cause: totalViews,
-    });
+    throw new Error('I could not retreive blog total views');
 
   res.status(200).json(totalViews._sum.views);
 }
