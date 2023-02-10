@@ -22,7 +22,7 @@ export default function PostListPage({
     <Container>
       <Hero />
 
-      <div className='flex justify-start items-center gap-3'>
+      <div className='flex justify-start items-center gap-3 flex-wrap'>
         <TotalViews />
 
         {socials.map((network, index) => (
