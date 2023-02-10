@@ -1,6 +1,6 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 
-const TITLE = 'Galfrevn Hub | Galfré Valentín Blog';
+const TITLE = 'Galfrevn Hub';
 const DESCRIPTION = `Find out all about Galfré Valentín, a fully completed Fullstack Developer from Argentina.
 Discover his blogs entries, where he uploads some daily problems solutions! 🚀`;
 const URL = 'blog.galfrevn.com';
