@@ -14,9 +14,6 @@ import '@fontsource/outfit/900.css';
 import Router from 'next/router';
 import Layout from 'layouts';
 
-import { SWRConfig } from 'swr';
-import { fetcher } from 'lib/swr';
-
 // NProgress bar
 import NProgress from 'nprogress'; //nprogress module
 import 'nprogress/nprogress.css'; //styles of nprogress
