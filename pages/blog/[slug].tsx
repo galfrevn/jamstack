@@ -14,6 +14,7 @@ import { useMDXComponent } from 'next-contentlayer/hooks';
 import MDXComponents from 'components/MDXComponents';
 import PostHeader from 'components/PostHeader';
 import Container from 'components/Container';
+import Footer from 'components/Footer';
 
 export default function Post({
   post,
@@ -32,7 +33,7 @@ export default function Post({
 
   const ogImage = createOgImage({
     title: post.title,
-    meta: ['galfrevn.dev', post.publishedAt].join(' · '),
+    meta: ['blog.galfrevn.com', post.publishedAt].join(' · '),
   });
 
   return (
@@ -47,6 +48,7 @@ export default function Post({
       <Container>
         <PostHeader {...post} />
         <MDXContent components={MDXComponents} />
+        <Footer />
       </Container>
     </Fragment>
   );
