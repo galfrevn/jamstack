@@ -30,7 +30,7 @@ export const createOgImage = ({
     // Transformations
     `c_thumb,g_face,r_max,w_500,h_500,q_100`,
     // Positioning
-    `fl_layer_apply,w_300,g_north_west,x_100,y_100`,
+    `fl_layer_apply,w_220,g_north_west,x_100,y_100`,
 
     // BG
     `blog/black.webp`,
