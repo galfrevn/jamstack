@@ -1,28 +1,28 @@
-import type { Post } from "contentlayer/generated";
-import type { FC } from "react";
-import React from "react";
+import type { Post } from 'contentlayer/generated';
+import type { FC } from 'react';
 
-const PostHeader: FC<Post> = ({ title, publishedAt, readingTime, wordCount }) => {
+import { Metrics, Pill } from 'components/Postcard/metrics';
+
+const PostHeader: FC<Post> = ({
+  slug,
+  title,
+  publishedAt,
+  readingTime,
+  wordCount,
+}) => {
   return (
-    <div className="xl:!col-end-5">
-      <h1 className="text-4xl leading-[1.2] font-extrabold" >
-        {title}
-      </h1>
-      <div className="mt-2 flex space-x-2 text-base text-[#F9F4DA] opacity-60">
+    <div className='xl:!col-end-5'>
+      <h1 className='text-4xl leading-[1.2] font-extrabold'>{title}</h1>
+      <div className='mt-2 flex space-x-2 text-base text-[#F9F4DA] opacity-60'>
         <p>{publishedAt}</p>
-        <div className="text-[#F9F4DA] opacity-70">·</div>
-        <p>
-          <span className="-mx-0.5 animate-[mutation_2s_ease-in-out_1] rounded-md px-0.5 slashed-zero tabular-nums tracking-tight">
-            {readingTime.text}
-          </span>{" "}
-        </p>
-        <div className="text-[#F9F4DA] opacity-70">·</div>
-        <p>
-          <span className="-mx-0.5 animate-[mutation_2s_ease-in-out_1] rounded-md px-0.5 slashed-zero tabular-nums tracking-tight">
-            {wordCount}
-          </span>{" "}
-          words
-        </p>
+        <div className='text-[#F9F4DA] opacity-70'>·</div>
+
+        <Pill text={readingTime.text} />
+        <div className='text-[#F9F4DA] opacity-70'>·</div>
+        <Pill text={`${wordCount} words`} />
+        <div className='text-[#F9F4DA] opacity-70'>·</div>
+
+        <Metrics slug={slug} />
       </div>
     </div>
   );
