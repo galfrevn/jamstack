@@ -3,7 +3,7 @@ import Document, { Html, Head, Main, NextScript } from 'next/document';
 const TITLE = 'Galfrevn Hub | Galfré Valentín Blog';
 const DESCRIPTION = `Find out all about Galfré Valentín, a fully completed Fullstack Developer from Argentina.
 Discover his blogs entries, where he uploads some daily problems solutions! 🚀`;
-const URL = 'https://portfolio-galfrevn.vercel.app';
+const URL = 'blog.galfrevn.com';
 
 class MyDocument extends Document {
   render() {
@@ -11,7 +11,8 @@ class MyDocument extends Document {
       <Html lang='en' className='scroll-p-24'>
         <Head>
           {/* GENERAL META TAGS */}
-          <meta name='title' content='Galfrevn Hub | Galfré Valentín Blog' />
+          <meta name='title' content={TITLE} />
+          <title>{TITLE}</title>
           <meta name='description' content={DESCRIPTION} />
           <link rel="shortcut icon" href="/images/avatar.png" />
 
