@@ -22,7 +22,7 @@ const GuestbookComments = () => {
   );
 };
 
-const Comment = ({ user, content, createdAt, id }: GuestbookComment) => {
+const Comment = ({ user, content, createdAt, id }: any) => {
   return (
     <motion.div
       key={`comment-${id}`}
