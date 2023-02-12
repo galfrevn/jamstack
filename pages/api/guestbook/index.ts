@@ -11,5 +11,7 @@ export default async function handler(_: NextApiRequest, res: NextApiResponse) {
     },
   });
 
+  console.log(comments)
+
   res.status(200).json(comments);
 }

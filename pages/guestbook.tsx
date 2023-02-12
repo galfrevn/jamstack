@@ -1,5 +1,5 @@
 import React from 'react';
-import { GetStaticProps, InferGetStaticPropsType } from 'next';
+import { GetServerSideProps, InferGetStaticPropsType } from 'next';
 
 import { SWRConfig } from 'swr';
 import { motion } from 'framer-motion';
@@ -13,7 +13,7 @@ import GuestbookComments from 'components/Guestbook/comments';
 
 const Guestbook = ({
   comments,
-}: InferGetStaticPropsType<typeof getStaticProps>) => {
+}: InferGetStaticPropsType<typeof getServerSideProps>) => {
   return (
     <SWRConfig value={{ fallback: { '/api/guestbook': comments } }}>
       <Container>
@@ -52,20 +52,18 @@ const Guestbook = ({
 
 export default Guestbook;
 
-export const getStaticProps: GetStaticProps<{
+const loadGuestbookComments = async () => {
+  const response = await fetch('https://blog.galfrevn.com/api/guestbook')
+  return await response.json()
+} 
+
+export const getServerSideProps: GetServerSideProps<{
   comments: GuestbookComment[];
 }> = async () => {
-  /* const host =
-    process.env.NODE_ENV === 'production'
-      ? 'https://blog.galfrevn.com'
-      : 'http://localhost:3000'; */
 
-  const comments = await fetch('https://blog.galfrevn.com/api/guestbook').then((res) =>
-    res.json()
-  );
+  const comments = await loadGuestbookComments()
 
   return {
     props: { comments },
-    revalidate: 30,
   };
 };
