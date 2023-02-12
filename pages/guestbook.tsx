@@ -55,12 +55,12 @@ export default Guestbook;
 export const getStaticProps: GetStaticProps<{
   comments: GuestbookComment[];
 }> = async () => {
-  const host =
+  /* const host =
     process.env.NODE_ENV === 'production'
       ? 'https://blog.galfrevn.com'
-      : 'http://localhost:3000';
+      : 'http://localhost:3000'; */
 
-  const comments = await fetch(host + '/api/guestbook').then((res) =>
+  const comments = await fetch('/api/guestbook').then((res) =>
     res.json()
   );
 
