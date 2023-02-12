@@ -60,7 +60,7 @@ export const getStaticProps: GetStaticProps<{
       ? 'https://blog.galfrevn.com'
       : 'http://localhost:3000'; */
 
-  const comments = await fetch('/api/guestbook').then((res) =>
+  const comments = await fetch('https://blog.galfrevn.com/api/guestbook').then((res) =>
     res.json()
   );
 
