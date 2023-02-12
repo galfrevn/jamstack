@@ -11,7 +11,5 @@ export default async function handler(_: NextApiRequest, res: NextApiResponse) {
     },
   });
 
-  if (!comments) throw new Error('I could not retreive the guestbook comments');
-
   res.status(200).json(comments);
 }
