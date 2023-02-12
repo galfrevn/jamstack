@@ -4,7 +4,7 @@ import { allPosts, type Post } from 'contentlayer/generated';
 
 // Social
 import { socials } from 'constants/networks';
-import { Link } from 'react-feather';
+import { Link, MessageCircle } from 'react-feather';
 
 // Components
 import Postcard from 'components/Postcard';
@@ -13,7 +13,7 @@ import Container from 'components/Container';
 import Hero from 'components/Hero';
 import TotalViews from 'components/TotalViews';
 import Update from 'components/Update';
-import Tag from 'components/Tag';
+import Tag, { InternalTag } from 'components/Tag';
 
 export default function PostListPage({
   posts,
@@ -25,8 +25,20 @@ export default function PostListPage({
       <div className='flex justify-start items-center gap-3 flex-wrap'>
         <TotalViews />
 
+        <InternalTag
+          color='red'
+          icon={<MessageCircle size={13} />}
+          label='Leave a comment'
+          link='/guestbook'
+        />
+
         {socials.map((network, index) => (
-          <Tag {...network} key={network.label} index={index} icon={<Link size={13} />} />
+          <Tag
+            {...network}
+            key={network.label}
+            index={index + 1}
+            icon={<Link size={13} />}
+          />
         ))}
       </div>
 

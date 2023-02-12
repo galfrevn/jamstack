@@ -29,6 +29,8 @@ const HeaderAvatar = () => {
             decoding='async'
             data-nimg='future'
             className='rounded-full'
+            placeholder='blur'
+            blurDataURL='/images/avatar-blured.webp'
           />
         </div>
       </motion.div>

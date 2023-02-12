@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 type ColorVariant = 'blue' | 'light-blue' | 'red' | 'purple' | 'white';
 export interface TagProps {
@@ -59,6 +60,27 @@ const Tag = (props: TagProps & { index?: number }) => {
       {icon}
       <p className='text-xs'>{label} </p>
     </motion.a>
+  );
+};
+
+export const InternalTag = (props: TagProps) => {
+  const { color, icon, label, link } = props;
+  const [background, border] = generateColorPair(color);
+
+  return (
+    <Link href={link as string} passHref>
+      <motion.a
+        key={`tag-${label}`}
+        className='h-6 border-2 rounded-md flex items-center justify-start pl-3 pr-4 select-none gap-2'
+        whileHover={{ scale: 1.05 }}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0, transition: { delay: 0.2 + 0.05 } }}
+        style={{ backgroundColor: background, borderColor: border }}
+      >
+        {icon}
+        <p className='text-xs'>{label} </p>
+      </motion.a>
+    </Link>
   );
 };
 

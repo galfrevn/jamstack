@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { Eye } from 'react-feather';
 
 import Hacked from 'components/TotalViews/hacked';
+import Dots from 'components/Dots';
 
 const SomethingWentWrong = () => (
   <motion.div
@@ -32,8 +33,11 @@ const TotalViews = () => {
       whileHover={{ scale: 1.05 }}
     >
       <Eye size={13} />
-      {isLoading && <>...</>}
-      {data && <p className='text-xs'>{data} total views </p>}
+      {isLoading && <Dots />}
+      {data && (
+        <p className='text-xs animate-[mutation_1s_ease-in-out_1]'>{data}</p>
+      )}
+      <p className='text-xs -ml-0.5'>total views</p>
     </motion.div>
   );
 };

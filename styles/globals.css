@@ -7,9 +7,10 @@
   -webkit-tap-highlight-color: transparent;
 }
 
-p, span, a, code, li, input, h1, h2, h2 a, h3 {
+p, span, a, code, li, input, h1, h2, h2 a, h3, textarea {
   font-family: "Outfit", sans-serif;
 }
+
 
 #nprogress .bar {
   background: #FFF !important;

@@ -34,7 +34,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <AnimatePresence>
       <Layout>
-        <Toaster position='bottom-right' />
+        <Toaster position='top-center' />
         <Component {...pageProps} />
       </Layout>
     </AnimatePresence>

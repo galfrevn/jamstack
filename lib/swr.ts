@@ -21,8 +21,14 @@ export const fetcher = async (url: string) => {
   return res.json();
 };
 
-export const postFetcher = async (url: string) => {
-  const res = await fetch(url, { method: 'POST' });
+export const postFetcher = async (url: string, { arg }: { arg: unknown }) => {
+  const res = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(arg),
+  });
 
   // If the status code is not in the range 200-299,
   // we still try to parse and throw it.
@@ -30,9 +36,13 @@ export const postFetcher = async (url: string) => {
     const error = new Error(
       'An error occurred while fetching the data.'
     ) as SWRError;
+
     // Attach extra info to the error object.
     error.info = await res.json();
     error.status = res.status;
+
+      console.log({error})
+
     throw error;
   }
 

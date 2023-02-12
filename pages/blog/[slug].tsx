@@ -29,7 +29,7 @@ export default function Post({
 
   useEffect(() => {
     trigger();
-  }, []);
+  }, [trigger]);
 
   const ogImage = createOgImage({
     title: post.title,
