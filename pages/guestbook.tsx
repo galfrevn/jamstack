@@ -1,8 +1,9 @@
 import React from 'react';
-import { GetServerSideProps, InferGetStaticPropsType } from 'next';
+import { GetStaticProps, InferGetStaticPropsType } from 'next';
 
 import { SWRConfig } from 'swr';
 import { motion } from 'framer-motion';
+import { prisma } from 'lib/prisma';
 import { GuestbookComment } from '@prisma/client';
 import { SessionProvider } from 'next-auth/react';
 
@@ -13,7 +14,7 @@ import GuestbookComments from 'components/Guestbook/comments';
 
 const Guestbook = ({
   comments,
-}: InferGetStaticPropsType<typeof getServerSideProps>) => {
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <SWRConfig value={{ fallback: { '/api/guestbook': comments } }}>
       <Container>
@@ -33,9 +34,9 @@ const Guestbook = ({
             animate={{ opacity: 1, y: 0, transition: { delay: 0.15 } }}
           >
             <span className='opacity-70'>
-              Hi there! I&apos;d love to hear your thoughts on my blog. Please leave
-              a comment in my guestbook and let me know what you think. Your
-              feedback is important and appreciated. Thanks for reading!
+              Hi there! I&apos;d love to hear your thoughts on my blog. Please
+              leave a comment in my guestbook and let me know what you think.
+              Your feedback is important and appreciated. Thanks for reading!
             </span>
           </motion.h2>
 
@@ -52,18 +53,21 @@ const Guestbook = ({
 
 export default Guestbook;
 
-const loadGuestbookComments = async () => {
-  const response = await fetch('https://blog.galfrevn.com/api/guestbook')
-  return await response.json()
-} 
-
-export const getServerSideProps: GetServerSideProps<{
+export const getStaticProps: GetStaticProps<{
   comments: GuestbookComment[];
 }> = async () => {
-
-  const comments = await loadGuestbookComments()
+  
+  const comments = await prisma.guestbookComment.findMany({
+    orderBy: {
+      createdAt: 'desc',
+    },
+    include: {
+      user: true,
+    },
+  });
 
   return {
     props: { comments },
+    revalidate: 30,
   };
 };
