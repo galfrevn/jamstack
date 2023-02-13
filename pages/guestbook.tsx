@@ -56,7 +56,6 @@ export default Guestbook;
 export const getStaticProps: GetStaticProps<{
   comments: GuestbookComment[];
 }> = async () => {
-  
   const comments = await prisma.guestbookComment.findMany({
     orderBy: {
       createdAt: 'desc',
@@ -67,7 +66,7 @@ export const getStaticProps: GetStaticProps<{
   });
 
   return {
-    props: { comments },
+    props: { comments: JSON.parse(JSON.stringify(comments)) },
     revalidate: 30,
   };
 };
