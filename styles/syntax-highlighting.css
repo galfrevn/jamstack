@@ -20,7 +20,7 @@ div[data-rehype-pretty-code-title] {
   /* stylistic preferences */
   margin-bottom: 0.125rem;
   border-radius: 0.375rem;
-  background-color: #9f9f9f1a;
+  background-color: #5d5d5d1a;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
   padding-top: 0.25rem;
@@ -29,7 +29,7 @@ div[data-rehype-pretty-code-title] {
     Consolas, "Liberation Mono", "Courier New", monospace !important;
   font-size: 0.75rem;
   line-height: 1rem;
-  color: #f9f4da;
+  color: #f9f4dacd;
 }
 
 div[data-rehype-pretty-code-fragment] .line {
@@ -71,6 +71,7 @@ code[data-line-numbers] .line::before {
   content: counter(lineNumber);
   display: inline-block;
   text-align: right;
+  font-family: monospace;
 
   /* stylistic preferences */
   margin-right: 0.75rem;

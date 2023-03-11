@@ -8,6 +8,8 @@ const nextConfig = {
       'res.cloudinary.com',
       'www.joshwcomeau.com',
       'avatars.githubusercontent.com',
+      'images.ctfassets.net',
+      'media.licdn.com',
     ],
   },
 };

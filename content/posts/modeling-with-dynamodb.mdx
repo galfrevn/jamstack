@@ -1,0 +1,181 @@
+---
+title: 'Modeling an AWS DynamoDB Table for a Masive Scalable Chat Application'
+publishedAt: 'March, 17th. 2023'
+summary: 'Unleash the full potential of your chat app with AWS DynamoDB: Learn how to design a scalable and flexible database for your messaging needs.'
+---
+
+<CustomLink href='https://aws.amazon.com/dynamodb/'>Amazon Web Services (AWS) DynamoDB</CustomLink>
+is a fully managed NoSQL database service that provides fast and predictable performance
+with seamless scalability. In this blog post, we will discuss how to model an AWS
+DynamoDB table for a **fully scalable and flexible chat application**.
+
+<PostImage
+  alt='DynamoDB notes'
+  src='https://media.licdn.com/dms/image/C4E12AQFZznzQYAdPZQ/article-inline_image-shrink_1500_2232/0/1638862394136?e=1683158400&v=beta&t=BXlOYbw7IlxCU7TzbDDggv7Jcle0s4FHYb1RIFUQYRE'
+  width='1000'
+  height='700'
+/>
+
+Sound good? Let's get started.
+
+<PostSubtitle id='chat-requirements' label='Requirements' />
+
+Before diving into the DynamoDB table design, let's first establish the requirements for a chat application.
+These requirements will help guide our table design and ensure that we are building a scalable and flexible system.
+
+- Users should be able to **send and receive messages** in **real-time**.
+- Messages should be **persisted and retrievable** for future reference.
+- Users should be able to retrieve their **chat history**.
+- The system should be able to **handle a large number of users and messages without compromising performance**.
+- The system should be able to **scale seamlessly as the user base** and message volume grows.
+
+<PostSubtitle id='designing-table' label='Designing the Table' />
+
+To design a DynamoDB table for a chat application, we need to consider the access patterns of our application.
+Access patterns refer to the ways in which we will be accessing the data stored in our DynamoDB table.
+Here are the access patterns for our chat application:
+
+- Retrieve **chat history** for a user
+- Retrieve **all messages in a chat room**
+- Retrieve **all messages sent by a user in a chat room**
+- Retrieve **all messages received by a user in a chat room**
+
+With these access patterns in mind, we can design our DynamoDB table as follows:
+
+<PostMiniTitle id='primary-key' label='Primary key' />
+The primary key of our DynamoDB table should be a composite key consisting of a partition
+key and a sort key. The partition key should be unique for each chat room, and the
+sort key should be a timestamp of when the message was sent. This will allow us to
+retrieve all messages in a chat room sorted by the time they were sent.
+
+<PostMiniTitle id='attributes' label='Attributes' />
+Our DynamoDB table should have the following attributes:
+
+- **chatRoomId**: The ID of the chat room
+- **messageId**: A unique identifier for the message
+- **senderId**: The ID of the user who sent the message
+- **recipientId**: The ID of the user who received the message (if applicable)
+- **timestamp**: The timestamp of when the message was sent
+- **messageText**: The content of the message
+
+<PostMiniTitle id='secondary-indexes' label='Secondary Indexes' />
+We can create secondary indexes to support the remaining access patterns of our chat
+application. Here are the secondary indexes that we will create:
+
+- **userChatIndex**: This index will allow us to retrieve all messages sent or received by a user in a chat room. The partition key of this index will be the user ID, and the sort key will be the chat room ID.
+- **chatRoomIndex**: This index will allow us to retrieve all messages in a chat room. The partition key of this index will be the chat room ID, and the sort key will be the timestamp.
+
+<PostSubtitle id='accessing-data' label='Accessing Data in the Table' />
+With our DynamoDB table design in place, we can now start accessing data in our table
+to implement the chat application's features.
+
+```ts showLineNumbers title="create-chat-conversation.ts"
+import AWS from 'aws-sdk';
+
+const client = new AWS.DynamoDB.DocumentClient();
+
+export const create = async () =>
+  await client.put({
+    TableName: 'table name goes here',
+    Item: {
+      pk: 'CONVERSATION#' + conversationId,
+      sk: 'METADATA',
+    },
+  });
+```
+
+<PostMiniTitle id='chat-history' label='Retrieving Chat History for a User' />
+To retrieve the chat history for a user, we can use the userChatIndex that we created.
+We can query this index with the user ID as the partition key and the chat room ID
+as the sort key. This will return all messages sent or received by the user in the
+specified chat room.
+
+<PostMiniTitle
+  id='chat-messages'
+  label='Retrieving All Messages in a Chat Room'
+/>
+To retrieve all messages in a chat room, we can use the chatRoomIndex that we created.
+We can query this index with the chat room ID as the partition key. This will return
+all messages in the specified chat room sorted by the time they were sent.
+
+<PostMiniTitle
+  id='user-sent-messages'
+  label='Retrieving All Messages Sent by a User in a Chat Room'
+/>
+To retrieve all messages sent by a user in a chat room, we can again use the userChatIndex
+that we created. We can query this index with the user ID as the partition key and
+the chat room ID as the sort key. However, we need to apply a filter expression to
+retrieve only messages sent by the user.
+
+<PostMiniTitle
+  id='user-messages'
+  label='Retrieving All Messages Received by a User in a Chat Room'
+/>
+To retrieve all messages received by a user in a chat room, we can use the chatRoomIndex
+that we created. We can query this index with the chat room ID as the partition key.
+However, we need to apply a filter expression to retrieve only messages received
+by the user.
+
+<PostImage
+  alt='DynamoDB'
+  src='https://images.ctfassets.net/1d31s1aajogl/5ZcoOX41SWWPDJJDzVpBfE/eb2ae1d1c6ebbbd3a2176bec219dbf47/dynamodb_lambda_s3_static-hosting_architecture.png'
+  width='1000'
+  height='450'
+/>
+
+<PostSubtitle id='conclusion' label='Conclusion' />
+In this blog post, we discussed how to model an AWS DynamoDB table for a fully scalable
+and flexible chat application. We first established the requirements for a chat application,
+and then we designed our DynamoDB table to meet those requirements. We also discussed
+how to access data in our DynamoDB table to implement the chat application's features.
+By following the guidelines presented in this blog post, you can build a scalable
+and flexible chat application that can handle a large number of users and messages.
+
+<PostTracker
+  pages={[
+    {
+      id: 'chat-requirements',
+      label: 'Requirements',
+      semipage: [
+        {
+          id: 'primary-key',
+          label: 'Primary key',
+        },
+        {
+          id: 'attributes',
+          label: 'Attributes',
+        },
+        {
+          id: 'secondary-indexes',
+          label: 'Secondary Indexes',
+        },
+      ],
+    },
+    {
+      id: 'accessing-data',
+      label: 'Accessing data in the Table',
+      semipage: [
+        {
+          id: 'chat-history',
+          label: 'Retrieving Chat History for a User',
+        },
+        {
+          id: 'chat-messages',
+          label: 'Retrieving All Messages in a Chat Room',
+        },
+        {
+          id: 'user-sent-messages',
+          label: 'Retrieving All Messages Sent by a User in a Chat Room',
+        },
+        {
+          id: 'Retrieving All Messages Received by a User in a Chat Room',
+          label: 'Retrieving Chat History for a User',
+        },
+      ],
+    },
+    {
+      id: 'conclusion',
+      label: 'Conclusion',
+    },
+  ]}
+/>

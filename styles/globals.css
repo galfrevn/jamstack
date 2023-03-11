@@ -1,17 +1,48 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import "styles/syntax-highlighting";
+@import 'styles/syntax-highlighting';
 
 * {
   -webkit-tap-highlight-color: transparent;
 }
 
-p, span, a, code, li, input, h1, h2, h2 a, h3, textarea {
-  font-family: "Outfit", sans-serif;
+p,
+span,
+a,
+code,
+li,
+input,
+h1,
+h2,
+h2 a,
+h3,
+textarea {
+  font-family: 'Outfit', sans-serif;
 }
 
+#external-link {
+  color: #fcba28;
+}
+
+/* #external-link:hover{
+  text-decoration: underline;
+  text-decoration-style: wavy; 
+} */
 
 #nprogress .bar {
-  background: #FFF !important;
+  background: #fff !important;
+}
+
+ul li {
+  @apply my-1 ml-5 text-neutral-400;
+}
+
+ul li::before {
+  @apply text-neutral-700/50;
+  content: '\2022';
+  font-weight: 700;
+  display: inline-block;
+  width: 1.2em;
+  margin-left: -1.2em;
 }
